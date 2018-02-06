@@ -1,0 +1,16 @@
+#header {
+  text-align: center;
+  font-size: 250%;
+  font-weight: bolder;
+  font-family: Calibri, sans-serif;
+}
+
+#header a {
+  text-decoration: none;
+  color: black;
+}
+
+#header_items li {
+  display: inline;
+  margin:0 50px 0 0;
+}
