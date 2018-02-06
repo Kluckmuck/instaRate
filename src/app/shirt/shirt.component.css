@@ -16,3 +16,7 @@ body {
   display: inline-block;
   float:left;
 }
+
+#shirt-pic {
+  width: 100%;
+}
