@@ -12,7 +12,7 @@ import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
   declarations: [
     AppComponent,
     ShirtComponent,
-    ShirtDetailComponent
+    ShirtDetailComponent,
   ],
   imports: [
     NgbModule.forRoot(),
