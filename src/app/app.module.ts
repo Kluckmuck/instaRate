@@ -5,12 +5,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { ShirtComponent } from './shirt/shirt.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShirtComponent
+    ShirtComponent,
+    ShirtDetailComponent
   ],
   imports: [
     NgbModule.forRoot(),
