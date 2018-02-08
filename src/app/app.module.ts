@@ -7,6 +7,7 @@ import { ShirtComponent } from './shirt/shirt.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ShirtComponent,
     ShirtDetailComponent,
     CheckoutComponent,
+    TermsComponent,
   ],
   imports: [
     NgbModule.forRoot(),
