@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ShirtComponent } from './shirt/shirt.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
     AppComponent,
     ShirtComponent,
     ShirtDetailComponent,
+    CheckoutComponent,
   ],
   imports: [
     NgbModule.forRoot(),
