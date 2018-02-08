@@ -1,5 +1,6 @@
 export class Shirt {
-  id: number;
-  name: string;
-  img: string;
+  constructor(
+    id: number,
+    name: string,
+    img: string ) {}
 }
