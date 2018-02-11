@@ -10,7 +10,8 @@ body {
 
 h1 {
   font-size: 250%;
-  font-weight: bolder;
+  font-weight: 200;
+  letter-spacing: 45px;
 }
 
 p {
@@ -22,7 +23,6 @@ p {
 #header {
   text-align: center;
   font-size: 250%;
-  font-weight: bolder;
   font-family: Calibri, sans-serif;
 }
 
@@ -35,6 +35,7 @@ p {
   display: inline;
   margin:0 50px 0;
   padding-bottom: 200px;
+  font-weight:200;
 }
 
 .footer h3 {
