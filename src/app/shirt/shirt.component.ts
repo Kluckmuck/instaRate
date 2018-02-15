@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Shirt } from '../models/shirt';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-shirt',
@@ -9,15 +11,24 @@ import { Shirt } from '../models/shirt';
 export class ShirtComponent implements OnInit {
 
   picText = 'T-shirt';
-  shirt: Shirt =  {
-    id: 1,
-    name: 'T-Shirt',
-    img: 'https://tshirtstore.centracdn.net/client/dynamic/images/4116_16576eeaed-tove.jpg'
-  };
+  catalogCatagoryID = 1;
+  shirts: Shirt[];
 
-  constructor() { }
+
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
+    this.getCatalogCatagory(this.catalogCatagoryID);
+  }
+
+  getCatalogCatagory(id: number) {
+    this.productService.getCatalogCatagory(id)
+      // clone the data object, using its known Config shape
+      .subscribe(data => {
+      this.shirts = data as Shirt[];
+    });
   }
 
 }

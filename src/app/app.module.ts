@@ -21,9 +21,9 @@ import { ProductService } from './services/product.service';
     TermsComponent,
   ],
   imports: [
-    HttpClientModule,
     NgbModule.forRoot(),
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [ProductService],

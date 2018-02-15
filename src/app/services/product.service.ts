@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import { Shirt } from '../models/shirt';
 
@@ -12,6 +13,11 @@ export class ProductService {
 
   getProduct(id: number) {
     const url = `${this.url}product/${id}`;
-    return this.http.get(url);
+    return this.http.get<Shirt>(url);
+  }
+
+  getCatalogCatagory(id: number): Observable<Shirt[]> {
+    const url = `${this.url}cc/${id}`;
+    return this.http.get<Shirt[]>(url);
   }
 }

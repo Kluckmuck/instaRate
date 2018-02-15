@@ -14,12 +14,6 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ShirtDetailComponent implements OnInit {
 
-  /*shirt: Shirt =  {
-    id: 1,
-    name: 'T-Shirt',
-    img: 'https://tshirtstore.centracdn.net/client/dynamic/images/4116_16576eeaed-tove.jpg'
-  };*/
-
   shirt: Shirt;
 
   constructor(
@@ -35,14 +29,7 @@ export class ShirtDetailComponent implements OnInit {
   getShirt(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id)
-    .subscribe(data => this.shirt = {
-      id: data['id'],
-      name: data['name'],
-      description: data['description'],
-      photo: data['photo'],
-      manufacturer: data['manufacturer'],
-      price_SEK: data['price_SEK'],
-    })
+    .subscribe(data => this.shirt = { ...data });
   }
 
 }
