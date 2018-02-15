@@ -4,13 +4,12 @@
     <div class="col-sm-6" *ngIf="shirt">
       <div class="row">
         <div class="col-md-6">
-          <img id="shirt-pic" src="{{shirt.img}}"/>
+          <img id="shirt-pic" src="{{shirt.photo}}"/>
         </div>
         <div class="col-md-4">
           <p>{{shirt.name}}</p>
-          <div id="price">899,00 kr</div>
-          <div id="info">A T-shirt (or t shirt, or tee) is a style of unisex fabric shirt named after the T shape of its body and sleeves. It normally has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of a light, inexpensive fabric and are easy to clean.
-          </div>
+          <div id="price">{{shirt.price}}</div>
+          <div id="info">{{shirt.description}}</div>
           <br>
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">Small</button>
