@@ -5,7 +5,7 @@
       <div class="row">
         <div *ngFor="let shirt of shirts" class="col-md-4">
           <a routerLink="/item/{{shirt.id}}">
-            <img id="shirt-pic" src="{{shirt.photo}}"/>
+            <img class="hvr-grow" id="shirt-pic" src="{{shirt.photo}}"/>
           </a>
           <div class="card-body">
             <p class="card-text">{{shirt.name}}</p>

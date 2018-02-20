@@ -10,6 +10,7 @@ import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TermsComponent } from './terms/terms.component';
 import { ProductService } from './services/product.service';
+import { FirstPageComponent } from './firstpage/firstpage.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ProductService } from './services/product.service';
     ShirtDetailComponent,
     CheckoutComponent,
     TermsComponent,
+    FirstPageComponent,
   ],
   imports: [
     NgbModule.forRoot(),

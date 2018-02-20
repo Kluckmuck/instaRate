@@ -25,3 +25,13 @@ def getProduct(request, p_id):
     except Product.DoesNotExist:
         return HttpResponseNotFound()
     return JsonResponse(model_to_dict(product))
+
+@require_http_methods(["GET", "POST", "DELETE"])
+def productList(request, p_id):
+    p_id = int(p_id)
+    try:
+        product = Product.objects.get(id=p_id)
+    except Product.DoesNotExist:
+        return HttpResponseNotFound()
+    #if request.session['order']:
+    return HttpResponseNotFound()
