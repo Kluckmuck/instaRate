@@ -11,7 +11,7 @@ import { ProductService } from '../services/product.service';
 export class ShirtComponent implements OnInit {
 
   picText = 'T-shirt';
-  catalogCatagoryID = 1;
+  catalogCatagoryID = 2;
   shirts: Shirt[];
 
 

@@ -11,7 +11,7 @@ body {
 h1 {
   font-size: 250%;
   font-weight: 200;
-  letter-spacing: 45px;
+  letter-spacing: 25px;
 }
 
 p {
@@ -22,7 +22,7 @@ p {
 
 #header {
   text-align: center;
-  font-size: 250%;
+  font-size: 230%;
   font-family: Calibri, sans-serif;
 }
 

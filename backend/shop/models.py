@@ -27,8 +27,6 @@ class Product(models.Model):
     name = models.CharField(max_length=300)
     description = models.TextField()
     photo = models.CharField(max_length=300)
-    manufacturer = models.CharField(max_length=300, blank=True)
-    price_SEK = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
        return self.name
