@@ -1,0 +1,16 @@
+h3 {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+h4 {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.border-bottom {
+  padding-bottom: 35px;
+  margin-bottom: 35px;
+}
