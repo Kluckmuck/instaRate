@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { Shirt } from '../models/shirt';
 import { ProductService } from '../services/product.service';
 
-import 'rxjs/add/operator/switchMap';
+
 
 @Component({
   selector: 'app-shirtdetail',
