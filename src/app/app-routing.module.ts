@@ -5,6 +5,7 @@ import { ShirtDetailComponent } from './shirtdetail/shirtdetail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TermsComponent } from './terms/terms.component';
 import { FirstPageComponent } from './firstpage/firstpage.component';
+import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'item/:id', component: ShirtDetailComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'terms', component: TermsComponent },
+  { path: 'event/:id', component: EventComponent },
   { path: '', component: FirstPageComponent }
 ];
 
