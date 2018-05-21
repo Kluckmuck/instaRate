@@ -35,3 +35,12 @@ def productList(request, p_id):
         return HttpResponseNotFound()
     #if request.session['order']:
     return HttpResponseNotFound()
+
+@require_http_methods(["GET"])
+def getProductEvents(request, p_id):
+    p_id = int(p_id)
+    try:
+        product = Product.objects.get(id=p_id)
+    except Product.DoesNotExist:
+        return HttpResponseNotFound()
+    return JsonResponse(list(Event.objects.all().filter(product=p_id).values()), safe=False)

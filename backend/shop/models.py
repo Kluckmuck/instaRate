@@ -32,7 +32,7 @@ class Product(models.Model):
        return self.name
 
 class Event(models.Model):
-    category = models.ForeignKey('Product', related_name='events', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', related_name='events', on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
     description = models.TextField()
     photo = models.CharField(max_length=300)

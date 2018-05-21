@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('cc/<int:cc_id>/', views.getCatalog),
-    """path('event/<int:e_id>/', views.getEvent),"""
-    path('product/<int:p_id>/', views.getProduct)
+    path('product/<int:p_id>/', views.getProduct),
+    path('event/<int:e_id>/', views.getProductEvents)
 ]
