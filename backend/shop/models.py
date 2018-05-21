@@ -31,6 +31,17 @@ class Product(models.Model):
     def __str__(self):
        return self.name
 
+class Event(models.Model):
+    category = models.ForeignKey('Product', related_name='events', on_delete=models.CASCADE)
+    name = models.CharField(max_length=300)
+    description = models.TextField()
+    photo = models.CharField(max_length=300)
+    pub_date = models.DateTimeField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+       return self.name
+
 class Order(models.Model):
     type = models.CharField(max_length=300)
     reference = models.CharField(max_length=300)
