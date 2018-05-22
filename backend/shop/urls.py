@@ -20,5 +20,6 @@ from . import views
 urlpatterns = [
     path('cc/<int:cc_id>/', views.getCatalog),
     path('product/<int:p_id>/', views.getProduct),
-    path('product/<int:p_id>/events/', views.getProductEvents)
+    path('product/<int:p_id>/events/', views.getProductEvents),
+    path('event/<int:e_id>/', views.getEventForms)    
 ]

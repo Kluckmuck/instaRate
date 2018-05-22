@@ -3,7 +3,7 @@ from django.http import HttpResponseNotFound, HttpResponse, JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.forms.models import model_to_dict
 
-from .models import CatalogCategory, Product, Event
+from .models import CatalogCategory, Product, Event, Form
 import json
 
 
@@ -44,3 +44,12 @@ def getProductEvents(request, p_id):
     except Product.DoesNotExist:
         return HttpResponseNotFound()
     return JsonResponse(list(Event.objects.all().filter(product=p_id).values()), safe=False)
+
+@require_http_methods(["GET"])
+def getEventForms(request, e_id):
+    e_id = int(e_id)
+    try:
+        event = Event.objects.get(id=e_id)
+    except Event.DoesNotExist:
+        return HttpResponseNotFound()
+    return JsonResponse(list(Form.objects.all().filter(event=e_id).values()), safe=False)

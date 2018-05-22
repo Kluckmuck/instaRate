@@ -42,6 +42,13 @@ class Event(models.Model):
     def __str__(self):
        return self.name
 
+class Form(models.Model):
+    event = models.ForeignKey('Event', related_name='forms', on_delete=models.CASCADE)
+    name = models.CharField(max_length=300, default="My form")
+    description = models.TextField(blank=True)
+    live = models.BooleanField(default=False)
+    responses = models.IntegerField(default=0)
+
 class Order(models.Model):
     type = models.CharField(max_length=300)
     reference = models.CharField(max_length=300)

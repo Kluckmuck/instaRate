@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from ..models import CatalogCategory, Catalog, Product, Event
+from ..models import CatalogCategory, Catalog, Product, Event, Form
 import json
 
 # Create your tests here.
@@ -17,13 +17,20 @@ class CatalogCategoryTestCase(TestCase):
 
         shirtCategory = CatalogCategory.objects.create(catalog=cTop, name='Shirts')
         product = Product.objects.create(category=shirtCategory, name='Black Shirt', description='A black shirt', photo='www.fake.com')
+        event = Event.objects.create(product=product, name='Workshop', description='A great workshop', photo='www.fake.com')
+        form = Form.objects.create(event=event, name='First form', description='A nice form')
+
 
         Product.objects.create(category=shirtCategory, name='White Shirt', description='A white shirt', photo='www.fake.com')
         Product.objects.create(category=shirtCategory, name='Blue Shirt', description='A blue shirt', photo='www.fake.com')
         Product.objects.create(category=shirtCategory, name='Red Shirt', description='A red shirt', photo='www.fake.com')
 
-        Event.objects.create(product=product, name='Workshop', description='A great workshop', photo='www.fake.com')
         Event.objects.create(product=product, name='Seminar', description='A fantastic seminar', photo='www.fake.com')
+
+        Form.objects.create(event=event, name='First form', description='A nice form')
+        Form.objects.create(event=event, name='First form', description='A nice form')
+        Form.objects.create(event=event, name='First form', description='A nice form')
+
 
 
         self.client = Client()
@@ -56,4 +63,11 @@ class CatalogCategoryTestCase(TestCase):
 
         data = json.loads(response.content.decode())
         self.assertEqual(len(data), 2)
+        self.assertEqual(response.status_code, 200)
+
+    def test_getForms(self):
+        response = self.client.get('/api/event/1/')
+
+        data = json.loads(response.content.decode())
+        self.assertEqual(len(data), 4)
         self.assertEqual(response.status_code, 200)
