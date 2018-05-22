@@ -8,6 +8,7 @@ import { Shirt } from '../models/shirt';
 export class ProductService {
   private url = 'http://127.0.0.1:8000/api/';  // URL to web api
   shirt: Shirt;
+  event: Event;
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +20,10 @@ export class ProductService {
   getCatalogCatagory(id: number): Observable<Shirt[]> {
     const url = `${this.url}cc/${id}`;
     return this.http.get<Shirt[]>(url);
+  }
+
+  getProductEvents(id: number): Observable<Event[]> {
+    const url = `${this.url}product/${id}/events`;
+    return this.http.get<Event[]>(url);
   }
 }

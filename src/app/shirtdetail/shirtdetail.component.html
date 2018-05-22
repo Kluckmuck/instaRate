@@ -2,12 +2,13 @@
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6" *ngIf="shirt">
+      <h1 class="display-4"><u>Course info</u></h1>
       <div class="row">
         <div class="col-md-6">
           <img id="shirt-pic" src="{{shirt.photo}}"/>
         </div>
         <div class="col-md-4">
-          <p>{{shirt.name}}</p>
+          <h4 class="text-secondary">{{shirt.name}}</h4>
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">Create evaluation</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Start evaluation</button>
@@ -18,14 +19,28 @@
           <div id="info">{{shirt.description}}</div>
         </div>
       </div>
+      <br><br>
+      <h1 class="display-4"><u>Events</u></h1>
+      <div class="row">
+        <div *ngFor="let event of events" class="col-md-4">
+          <a routerLink="/event/{{event.id}}">
+            <img class="hvr-grow" id="shirt-pic" src="{{event.photo}}"/>
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{event.name}} {{event.date}}</p>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <h1 class="display-4"><u>Statistics</u></h1>
       <div class="row">
         <div class="col-sm-3">
-          <img id="shirt-pic" src="https://www.mailman.columbia.edu/sites/default/files/styles/large_782x512/public/jpg/Graph678X443.jpg?itok=Yls9X8Ft"/>
+          <img class="hvr-grow" id="shirt-pic" src="https://www.mailman.columbia.edu/sites/default/files/styles/large_782x512/public/jpg/Graph678X443.jpg?itok=Yls9X8Ft"/>
         </div>
-        <div class="col-sm-3">
+        <div class="hvr-grow" class="col-sm-3">
           <img id="shirt-pic" src="https://i0.wp.com/technology.amis.nl/wp-content/uploads/2013/05/EoRMJ.png?fit=1450%2C800&ssl=1"/>
         </div>
-        <div class="col-sm-3">
+        <div  class="hvr-grow" class="col-sm-3">
           <img id="shirt-pic" src="https://i0.wp.com/technology.amis.nl/wp-content/uploads/2013/05/EoRMJ.png?fit=1450%2C800&ssl=1"/>
         </div>
       </div>

@@ -15,6 +15,7 @@ import 'rxjs/add/operator/switchMap';
 export class ShirtDetailComponent implements OnInit {
 
   shirt: Shirt;
+  events: Event[];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,12 +25,21 @@ export class ShirtDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getShirt();
+    this.getEvents();
   }
 
   getShirt(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id)
     .subscribe(data => this.shirt = { ...data });
+  }
+
+  getEvents(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.productService.getProductEvents(id)
+      .subscribe(data => {
+      this.events = data as Event[];
+  });
   }
 
 }

@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from ..models import CatalogCategory, Catalog, Product
+from ..models import CatalogCategory, Catalog, Product, Event
 import json
 
 # Create your tests here.
@@ -16,11 +16,14 @@ class CatalogCategoryTestCase(TestCase):
         ##Cshirt = Catalog.objects.create(name='Shirts', publisher='Jacuzzi', description='Shirt catalog')
 
         shirtCategory = CatalogCategory.objects.create(catalog=cTop, name='Shirts')
+        product = Product.objects.create(category=shirtCategory, name='Black Shirt', description='A black shirt', photo='www.fake.com')
 
-        Product.objects.create(category=shirtCategory, name='Black Shirt', description='A black shirt', photo='www.fake.com', price_SEK=899)
-        Product.objects.create(category=shirtCategory, name='White Shirt', description='A white shirt', photo='www.fake.com', price_SEK=799)
-        Product.objects.create(category=shirtCategory, name='Blue Shirt', description='A blue shirt', photo='www.fake.com', price_SEK=699)
-        Product.objects.create(category=shirtCategory, name='Red Shirt', description='A red shirt', photo='www.fake.com', price_SEK=599)
+        Product.objects.create(category=shirtCategory, name='White Shirt', description='A white shirt', photo='www.fake.com')
+        Product.objects.create(category=shirtCategory, name='Blue Shirt', description='A blue shirt', photo='www.fake.com')
+        Product.objects.create(category=shirtCategory, name='Red Shirt', description='A red shirt', photo='www.fake.com')
+
+        Event.objects.create(product=product, name='Workshop', description='A great workshop', photo='www.fake.com')
+        Event.objects.create(product=product, name='Seminar', description='A fantastic seminar', photo='www.fake.com')
 
 
         self.client = Client()
@@ -47,3 +50,10 @@ class CatalogCategoryTestCase(TestCase):
     def test_getProduct_oob(self):
         response = self.client.get('/api/product/150/')
         self.assertEqual(response.status_code, 404)
+
+    def test_getEvents(self):
+        response = self.client.get('/api/product/1/events/')
+
+        data = json.loads(response.content.decode())
+        self.assertEqual(len(data), 2)
+        self.assertEqual(response.status_code, 200)

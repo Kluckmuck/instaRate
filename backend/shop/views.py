@@ -3,7 +3,7 @@ from django.http import HttpResponseNotFound, HttpResponse, JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.forms.models import model_to_dict
 
-from .models import CatalogCategory, Product
+from .models import CatalogCategory, Product, Event
 import json
 
 
