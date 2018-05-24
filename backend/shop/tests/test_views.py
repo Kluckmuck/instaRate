@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from ..models import CatalogCategory, Catalog, Product, Event, Form
+from ..models import CatalogCategory, Catalog, Product, Event, Form, Question
 import json
 
 # Create your tests here.
@@ -19,6 +19,8 @@ class CatalogCategoryTestCase(TestCase):
         product = Product.objects.create(category=shirtCategory, name='Black Shirt', description='A black shirt', photo='www.fake.com')
         event = Event.objects.create(product=product, name='Workshop', description='A great workshop', photo='www.fake.com')
         form = Form.objects.create(event=event, name='First form', description='A nice form')
+        question = Question.objects.create(form=form, title='Do you like')
+
 
 
         Product.objects.create(category=shirtCategory, name='White Shirt', description='A white shirt', photo='www.fake.com')
@@ -31,7 +33,10 @@ class CatalogCategoryTestCase(TestCase):
         Form.objects.create(event=event, name='First form', description='A nice form')
         Form.objects.create(event=event, name='First form', description='A nice form')
 
-
+        Question.objects.create(form=form, title='like it')
+        Question.objects.create(form=form, title='like that')
+        Question.objects.create(form=form, title='cardiB')
+        Question.objects.create(form=form, title='skrrt')
 
         self.client = Client()
 
@@ -70,4 +75,11 @@ class CatalogCategoryTestCase(TestCase):
 
         data = json.loads(response.content.decode())
         self.assertEqual(len(data), 4)
+        self.assertEqual(response.status_code, 200)
+
+    def test_getQuestion(self):
+        response = self.client.get('/api/form/1/')
+
+        data = json.loads(response.content.decode())
+        self.assertEqual(len(data), 5)
         self.assertEqual(response.status_code, 200)

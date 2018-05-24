@@ -49,6 +49,17 @@ class Form(models.Model):
     live = models.BooleanField(default=False)
     responses = models.IntegerField(default=0)
 
+    def __str__(self):
+       return self.name
+
+class Question(models.Model):
+    form = models.ForeignKey('Form', related_name='questions', on_delete=models.CASCADE)
+    title = models.CharField(max_length=300)
+    type = models.IntegerField(default=0)
+
+    def __str__(self):
+       return self.title
+
 class Order(models.Model):
     type = models.CharField(max_length=300)
     reference = models.CharField(max_length=300)
