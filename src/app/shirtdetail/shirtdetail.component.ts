@@ -16,6 +16,7 @@ export class ShirtDetailComponent implements OnInit {
 
   shirt: Shirt;
   events: Event[];
+  itemID: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,18 +25,17 @@ export class ShirtDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getShirt();
-    this.getEvents();
+    this.itemID = +this.route.snapshot.paramMap.get('id');
+    this.getShirt(this.itemID);
+    this.getEvents(this.itemID);
   }
 
-  getShirt(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+  getShirt(id: number): void {
     this.productService.getProduct(id)
     .subscribe(data => this.shirt = { ...data });
   }
 
-  getEvents(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+  getEvents(id: number): void {
     this.productService.getProductEvents(id)
       .subscribe(data => {
       this.events = data as Event[];

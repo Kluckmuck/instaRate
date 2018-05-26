@@ -12,6 +12,7 @@ import { TermsComponent } from './terms/terms.component';
 import { ProductService } from './services/product.service';
 import { FirstPageComponent } from './firstpage/firstpage.component';
 import { EventComponent } from './event/event.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { EventComponent } from './event/event.component';
     TermsComponent,
     FirstPageComponent,
     EventComponent,
+    FormComponent,
   ],
   imports: [
     NgbModule.forRoot(),

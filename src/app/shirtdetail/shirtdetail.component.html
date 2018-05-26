@@ -23,7 +23,7 @@
       <h1 class="display-4"><u>Events</u></h1>
       <div class="row">
         <div *ngFor="let event of events" class="col-md-4">
-          <a routerLink="/event/{{event.id}}">
+          <a routerLink="event/{{event.id}}">
             <img class="hvr-grow" id="shirt-pic" src="{{event.photo}}"/>
           </a>
           <div class="card-body">

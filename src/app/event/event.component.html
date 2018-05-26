@@ -1,3 +1,20 @@
-<p>
-  event works!
-</p>
+<body>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div *ngFor="let form of forms" class="col-md-4">
+          <a routerLink="/form/{{form.id}}">
+            <img class="hvr-grow" id="shirt-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNpbeIPNBHuRA7EdVI_EkfV735k2Av13HO55WI11lG0kJw1aEYbw"/>
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{form.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</body>
+<router-outlet></router-outlet>

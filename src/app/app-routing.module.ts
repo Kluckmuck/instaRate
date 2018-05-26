@@ -6,14 +6,16 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { TermsComponent } from './terms/terms.component';
 import { FirstPageComponent } from './firstpage/firstpage.component';
 import { EventComponent } from './event/event.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'shirts', component: ShirtComponent },
+  { path: 'courses', component: ShirtComponent },
   { path: 'item/:id', component: ShirtDetailComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'terms', component: TermsComponent },
-  { path: 'event/:id', component: EventComponent },
+  { path: 'item/:id/event/:id', component: EventComponent },
+  { path: 'form/:id', component: FormComponent },
   { path: '', component: FirstPageComponent }
 ];
 
