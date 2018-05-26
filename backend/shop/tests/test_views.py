@@ -83,3 +83,37 @@ class CatalogCategoryTestCase(TestCase):
         data = json.loads(response.content.decode())
         self.assertEqual(len(data), 5)
         self.assertEqual(response.status_code, 200)
+
+    def test_postForm(self):
+        response = self.client.post('/api/event/1/', json.dumps({'name': 'Spiderman','description': 'Batman'}), content_type='application/json')
+
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(Form.objects.get(id=5).name, 'Spiderman')
+
+    def test_deleteForm(self):
+        response = self.client.delete('/api/form/1/')
+
+        self.assertRaises(Form.DoesNotExist, Form.objects.get, id=1)
+        self.assertEqual(response.status_code, 204)
+
+        response = self.client.delete('/api/form/10/')
+
+        self.assertRaises(Form.DoesNotExist, Form.objects.get, id=10)
+        self.assertEqual(response.status_code, 404)
+
+    def test_postQuestion(self):
+        response = self.client.post('/api/form/1/', json.dumps({'title': 'My title'}), content_type='application/json')
+
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(Question.objects.get(id=6).title, 'My title')
+
+    def test_deleteQuestion(self):
+        response = self.client.delete('/api/question/1/')
+
+        self.assertRaises(Question.DoesNotExist, Question.objects.get, id=1)
+        self.assertEqual(response.status_code, 204)
+
+        response = self.client.delete('/api/question/10/')
+
+        self.assertRaises(Question.DoesNotExist, Question.objects.get, id=10)
+        self.assertEqual(response.status_code, 404)

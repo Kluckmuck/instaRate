@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.
+<div class="answers">
+  <img id="answer-image" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/facebook/65/grinning-face_1f600.png">
+  <img id="answer-image" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/facebook/65/confused-face_1f615.png">
+  <img id="answer-image" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/facebook/65/disappointed-face_1f61e.png">
+</div>
+-->
+<body>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h3 class="display-2"><u>Form {{formID}}</u></h3>
+        <div *ngFor="let question of questions">
+          <div>
+            <h1 class="display-4">{{question.title}}
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </h1>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <h2 class="text-success display-4">Start</h2>
+        </div>
+        <div class="col-sm-3">
+          <h2 class="text-danger display-4">Delete</h2>
+        </div>
+        <div class="col-sm-3">
+          <h2 class="text-primary display-4">Add</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</body>
+<router-outlet></router-outlet>

@@ -22,5 +22,6 @@ urlpatterns = [
     path('product/<int:p_id>/', views.getProduct),
     path('product/<int:p_id>/events/', views.getProductEvents),
     path('event/<int:e_id>/', views.getEventForms),
-    path('form/<int:f_id>/', views.getFormQuestions)    
+    path('form/<int:f_id>/', views.getFormQuestions),
+    path('question/<int:q_id>/', views.getQuestion)   
 ]
