@@ -4,7 +4,7 @@ h1 {
 }
 
 h2 {
-
+  margin-left: 10px;
 }
 
 .answer-image {
@@ -14,4 +14,24 @@ h2 {
 
 .answers {
   text-align: center;
+}
+
+
+.addBtn {
+  background: none;
+  border:none;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border: 0px solid;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }

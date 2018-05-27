@@ -13,6 +13,7 @@
         <div *ngFor="let question of questions">
           <div>
             <h1 class="display-4">{{question.title}}
+              <!--<button (click)="deleteComment({{question.id}})" type="button" class="close" aria-label="Close">-->
               <button type="button" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -20,15 +21,26 @@
           </div>
       </div>
       <div class="row">
-        <div class="col-sm-3">
-          <h2 class="text-success display-4">Start</h2>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="addBtn" (click)="addQuestion(questionInput.value);">
+              <h2 class="text-primary display-4">Add: </h2>
+            </button>
+          </div>
+          <input #questionInput type="text" class="form-control" placeholder="Enter a new question" aria-label="" aria-describedby="basic-addon1">
         </div>
-        <div class="col-sm-3">
-          <h2 class="text-danger display-4">Delete</h2>
         </div>
-        <div class="col-sm-3">
-          <h2 class="text-primary display-4">Add</h2>
+        <div class="row">
+          <button class="addBtn" (click)="addQuestion(hej);">
+            <a class="hvr-forward" routerLink="/terms">
+              <h2 class="text-success display-4">Start Form</h2>
+            </a>
+          </button>
         </div>
+        <div class="row">
+          <button class="addBtn" (click)="addQuestion(hej);">
+            <h2 class="text-danger display-4">Delete Form</h2>
+          </button>
       </div>
     </div>
     <div class="col-sm-3">

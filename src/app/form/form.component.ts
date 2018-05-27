@@ -33,4 +33,12 @@ export class FormComponent implements OnInit {
       this.questions = data as Question[];
     });
   }
+
+  addQuestion(value: string): void {
+    this.productService.addQuestion(this.formID, value);
+  }
+
+  deleteQuestion(id: number): void {
+
+  }
 }

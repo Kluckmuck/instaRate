@@ -30,13 +30,18 @@ export class ProductService {
     return this.http.get<Event[]>(url);
   }
 
-  getEventForms(id:number): Observable<Form[]> {
+  getEventForms(id: number): Observable<Form[]> {
     const url = `${this.url}event/${id}`;
     return this.http.get<Form[]>(url);
   }
 
-  getFormQuestions(id:number): Observable<Question[]> {
+  getFormQuestions(id: number): Observable<Question[]> {
     const url = `${this.url}form/${id}`;
     return this.http.get<Question []>(url);
+  }
+
+  addQuestion(id: number, value: string): Observable<Question>{
+    const url = `${this.url}form/${id}`;
+    return this.http.post<Question>(url, value);
   }
 }
